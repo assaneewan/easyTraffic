@@ -1,5 +1,9 @@
 package scaat.cs.paew.easytraffic;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.preference.DialogPreference;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -20,7 +24,7 @@ public class TestActivity extends AppCompatActivity {
             choice3RadioButton, choice4RadioButton;
     private String[] questionStrings;
     private int[] imageInts;
-    private int radioAnInt,indexAnInt;
+    private int radioAnInt, indexAnInt, scoreAnInt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +44,7 @@ public class TestActivity extends AppCompatActivity {
         if (radioAnInt==0) {
             Toast.makeText(TestActivity.this,"กรุงณาตอบคำถามด้วยจ้า",Toast.LENGTH_LONG).show();
         } else {
+            checkScore();
             myModel();
 
         }
@@ -51,11 +56,26 @@ public class TestActivity extends AppCompatActivity {
             showAnswerDialog();
 
         } else {
+            // check Score
+            checkScore();
             indexAnInt += 1;
+
             // change View
             changeView(indexAnInt);
+
+            // clear check
+            choiceRadioGroup.clearCheck();
         }
     } // myModel
+
+    private void checkScore() {
+
+        int[] intTrueAnswer = {1, 2, 3, 1, 2, 3, 1};
+        if (radioAnInt == intTrueAnswer[indexAnInt]) {
+            scoreAnInt++;
+        }
+
+    } // checkScore
 
     private void changeView(int indexAnInt) {
         //change Question
@@ -75,8 +95,28 @@ public class TestActivity extends AppCompatActivity {
     } // changeView
 
     private void showAnswerDialog() {
-
-    }
+        AlertDialog.Builder objBuilder = new AlertDialog.Builder(this);
+        objBuilder.setIcon(R.drawable.p4);
+        objBuilder.setTitle("คะแนนสอบของคุณ");
+        objBuilder.setMessage("คะแนนที่คุณสอบได้" + Integer.toString(scoreAnInt) + "คะแนน");
+        objBuilder.setCancelable(false);
+        objBuilder.setNegativeButton("เล่นอีกครั้ง", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                onStart();
+                dialog.dismiss();
+            }
+        });
+        objBuilder.setPositiveButton("อ่านบทเรียน", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Intent objIntent = new Intent(TestActivity.this, MainActivity.class);
+                startActivity(objIntent);
+                dialog.dismiss();
+            }
+        });
+        objBuilder.show();
+    } // showAnswerDialog
 
     private void radioController() {
 
@@ -118,6 +158,9 @@ public class TestActivity extends AppCompatActivity {
         imageInts[5] = R.drawable.t6;
         imageInts[6] = R.drawable.t7;
 
+        indexAnInt = 0;
+        scoreAnInt = 0;
+
         String[] strChoice = getResources().getStringArray(R.array.times1);
 
         //Just Start
@@ -127,7 +170,6 @@ public class TestActivity extends AppCompatActivity {
         choice2RadioButton.setText(strChoice[1]);
         choice3RadioButton.setText(strChoice[2]);
         choice4RadioButton.setText(strChoice[3]);
-
 
 
         super.onStart();
