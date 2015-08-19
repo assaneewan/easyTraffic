@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="times1">
+        <item>ห้ามเลี้ยว</item>
+        <item>หลอก</item>
+        <item>หลอก</item>
+        <item>ถูกทุกข้อ</item>
+    </string-array>
+    <string-array name="times2">
+        <item>ห้ามเลี้ยว</item>
+        <item>หลอก</item>
+        <item>หลอก</item>
+        <item>ถูกทุกข้อ</item>
+    </string-array>
+    <string-array name="times3">
+        <item>ห้ามเลี้ยวขวา</item>
+        <item>หลอก</item>
+        <item>หลอก</item>
+        <item>ถูกทุกข้อ</item>
+    </string-array>
+    <string-array name="times4">
+        <item>หลอก</item>
+        <item>ห้ามเลี้ยวซ้าย</item>
+        <item>หลอก</item>
+        <item>ถูกทุกข้อ</item>
+    </string-array>
+    <string-array name="times5">
+        <item>หลอก</item>
+        <item>หลอก</item>
+        <item>ห้ามเลี้ยวตรง</item>
+        <item>ถูกทุกข้อ</item>
+    </string-array>
+    <string-array name="times6">
+        <item>ห้ามเข้า</item>
+        <item>หลอก</item>
+        <item>หลอก</item>
+        <item>ถูกทุกข้อ</item>
+    </string-array>
+    <string-array name="times7">
+        <item>หลอก</item>
+        <item>จำกัดความเร็ว</item>
+        <item>หลอก</item>
+        <item>ถูกทุกข้อ</item>
+    </string-array>
+
+</resources>
