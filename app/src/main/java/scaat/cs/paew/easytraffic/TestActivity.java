@@ -4,14 +4,25 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.TextView;
 
 public class TestActivity extends AppCompatActivity {
+    // explicit
+    private TextView questionTextView;
+    private ImageView trafficImageView;
+    private RadioGroup choiceRadioGroup;
+    private RadioButton choice1RadioButton, chioce2RadioButton,
+            choice3RadioButton, choice4RadioButton;
+    
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test);
-    }
+    }  //onCreate
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -34,4 +45,4 @@ public class TestActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-}
+}  //main class
