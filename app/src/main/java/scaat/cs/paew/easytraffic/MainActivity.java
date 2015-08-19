@@ -27,7 +27,12 @@ public class MainActivity extends AppCompatActivity {
 
         // Create ListView()
         createListView();
-    }
+
+    } // Main Method
+    // bind xml
+    public void clickTest(View view) {
+        startActivity(new Intent(this,TestActivity.class));
+    } // clickTest
 
     private void createListView() {
         final String[] strTitle = new String[7];
